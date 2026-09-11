@@ -4,3 +4,8 @@ node_modules/
 coverage/
 pnpm-lock.yaml
 .pnpm-store/
+build
+.next
+package-lock.json
+yarn.lock
+*.log

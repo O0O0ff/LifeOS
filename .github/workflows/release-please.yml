@@ -18,7 +18,7 @@ jobs:
       # 导出各应用的发布状态，供下游作业使用
       web--release_created: ${{ steps.release.outputs['apps/web--release_created'] }}
       web--tag_name: ${{ steps.release.outputs['apps/web--tag_name'] }}
-      
+
       api--release_created: ${{ steps.release.outputs['apps/api--release_created'] }}
       api--tag_name: ${{ steps.release.outputs['apps/api--tag_name'] }}
     steps:

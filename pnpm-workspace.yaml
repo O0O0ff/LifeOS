@@ -5,3 +5,5 @@ packages:
 allowBuilds:
   esbuild: true
   msw: false
+catalog:
+  typescript: ^6.0.2

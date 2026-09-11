@@ -22,7 +22,7 @@ jobs:
       api--release_created: ${{ steps.release.outputs['apps/api--release_created'] }}
       api--tag_name: ${{ steps.release.outputs['apps/api--tag_name'] }}
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
     if: ${{ needs.release-please.outputs.web--release_created }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: googleapis/release-please-action@v5
       - name: Deploy Web App
         run: |
           echo "Web has released version: ${{ needs.release-please.outputs.web--tag_name }}"
@@ -51,7 +51,7 @@ jobs:
     if: ${{ needs.release-please.outputs.api--release_created }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: googleapis/release-please-action@v5
       - name: Deploy NestJS API
         run: |
           echo "API has released version: ${{ needs.release-please.outputs.api--tag_name }}"

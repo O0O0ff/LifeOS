@@ -1,7 +1,7 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-11 23:14:28
- * @LastEditTime: 2026-09-11 23:17:08
+ * @LastEditTime: 2026-09-12 01:33:08
  * @FilePath: \life-os-shadcn\commitlint.config.cjs
  */
 module.exports = {
@@ -12,22 +12,22 @@ module.exports = {
     'scope-enum': [
       2,
       'always',
-       [
+      [
         // Apps（业务应用）
-        'api',        // apps/api (NestJS)
-        'web',        // apps/web (React/Vite)
+        'web', // apps/web (React/Vite)
 
         // Packages（跨项目共享包）
-        'ui',         // packages/ui (Shadcn UI 组件)
-        'types',      // packages/types (共享的 TS 类型/DTO定义)
+        'ui', // packages/ui (Shadcn UI 组件)
+        'types', // packages/types (共享的 TS 类型/DTO定义)
         'api-client', // packages/api-client (TanStack Query 请求封装与 hooks)
-        'shared',     // packages/shared 或 utils (公共工具函数等)
-        
+        'shared', // packages/shared 或 utils (公共工具函数等)
+
         // 全局管理/工程化
-        'root',       // 根目录配置变动
-        'deps',       // 依赖包全局更新
-        'release',    // 发版/版本标签
+        'root', // 根目录配置变动
+        'deps', // 依赖包全局更新
+        'release', // 发版/版本标签
+        'db', // 数据库相关变动 packages/db
       ],
     ],
   },
-};
+}

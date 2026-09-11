@@ -1,0 +1,58 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      # 注意：确认你的默认主分支名是 main 还是 master
+      # - main
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      # 导出各应用的发布状态，供下游作业使用
+      web--release_created: ${{ steps.release.outputs['apps/web--release_created'] }}
+      web--tag_name: ${{ steps.release.outputs['apps/web--tag_name'] }}
+      
+      api--release_created: ${{ steps.release.outputs['apps/api--release_created'] }}
+      api--tag_name: ${{ steps.release.outputs['apps/api--tag_name'] }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  # ========================================================
+  # 后续任务示例：当 apps/web 发布新版本时触发
+  # ========================================================
+  deploy-web:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.web--release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Web App
+        run: |
+          echo "Web has released version: ${{ needs.release-please.outputs.web--tag_name }}"
+          # 在这里执行构建/部署前端的操作（例如打包、上传 S3 / Vercel / Docker）
+
+  # ========================================================
+  # 后续任务示例：当 apps/api (NestJS) 发布新版本时触发
+  # ========================================================
+  deploy-api:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.api--release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy NestJS API
+        run: |
+          echo "API has released version: ${{ needs.release-please.outputs.api--tag_name }}"
+          # 在这里执行打包后端、构建镜像、推送云端容器等操作

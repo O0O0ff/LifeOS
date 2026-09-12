@@ -1,21 +1,21 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-12 01:13:45
- * @LastEditTime: 2026-09-12 01:14:57
- * @FilePath: \life-os-shadcn\packages\db\src\schema\shares.ts
+ * @LastEditTime: 2026-09-12 15:30:42
+ * @FilePath: \life-os\packages\db\src\schema\shares.ts
  */
 import {
+  boolean,
+  index,
+  integer,
+  jsonb,
+  pgEnum,
   pgTable,
   text,
   timestamp,
-  boolean,
-  integer,
-  jsonb,
   uuid,
-  index,
-  pgEnum,
 } from 'drizzle-orm/pg-core'
-import { user } from './auth'
+import { user } from './auth.js'
 
 export const shareTypeEnum = pgEnum('share_type', [
   'daily_card',

@@ -1,7 +1,7 @@
 // packages/database/validators/tasks.ts
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod'
 import { z } from 'zod'
-import { tasks } from '../schema/tasks'
+import { tasks } from '../schema/tasks.js'
 
 // 1. 查询返回的数据类型校验
 export const selectTaskSchema = createSelectSchema(tasks)

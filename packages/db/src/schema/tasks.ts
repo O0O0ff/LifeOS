@@ -5,16 +5,16 @@
  * @FilePath: \life-os-shadcn\packages\db\src\schema\tasks.ts
  */
 import {
+  boolean,
+  index,
+  integer,
+  pgEnum,
   pgTable,
   text,
   timestamp,
-  boolean,
-  integer,
   uuid,
-  index,
-  pgEnum,
 } from 'drizzle-orm/pg-core'
-import { user } from './auth'
+import { user } from './auth.js'
 
 export const taskStatusEnum = pgEnum('task_status', [
   'todo',

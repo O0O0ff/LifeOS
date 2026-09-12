@@ -1,11 +1,11 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-12 01:18:36
- * @LastEditTime: 2026-09-12 01:20:45
- * @FilePath: \life-os-shadcn\packages\db\src\client.ts
+ * @LastEditTime: 2026-09-12 15:29:33
+ * @FilePath: \life-os\packages\db\src\client.ts
  */
 import { drizzle, NodePgDatabase } from 'drizzle-orm/node-postgres'
-import * as schema from './schema'
+import * as schema from './schema/index.js'
 import { Pool, PoolConfig } from 'pg'
 export type { Pool, PoolConfig } from 'pg'
 export type DatabaseInstance = NodePgDatabase<typeof schema>

@@ -5,10 +5,10 @@
  * @FilePath: \life-os-shadcn\packages\db\src\schema\relations.ts
  */
 import { relations } from 'drizzle-orm'
-import { user } from './auth'
-import { projects, tasks, tags, tagAssignments } from './tasks'
-import { calendarEvents, timeEntries } from './time-tracking'
-import { sharedRecords } from './shares'
+import { user } from './auth.js'
+import { sharedRecords } from './shares.js'
+import { projects, tagAssignments, tags, tasks } from './tasks.js'
+import { calendarEvents, timeEntries } from './time-tracking.js'
 
 export const userRelations = relations(user, ({ many }) => ({
   projects: many(projects),

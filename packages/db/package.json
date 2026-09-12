@@ -34,9 +34,9 @@
   "packageManager": "pnpm@10.33.4",
   "dependencies": {
     "@types/pg": "^8.23.1",
-    "drizzle-kit": "^0.31.10",
-    "drizzle-orm": "^0.45.2",
-    "drizzle-zod": "^0.8.3",
+    "drizzle-kit": "catalog:",
+    "drizzle-orm": "catalog:",
+    "drizzle-zod": "catalog:",
     "pg": "^8.23.0",
     "zod": "catalog:"
   }

@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as authLogtinRouteImport } from './routes/(auth)/logtin'
+import { Route as authLoginRouteImport } from './routes/(auth)/login'
 import { Route as authRegisterRouteImport } from './routes/(auth)/register'
 import { Route as ShareShareIdRouteImport } from './routes/share/$shareId'
 import { Route as AuthenticatedCalendarIndexRouteImport } from './routes/_authenticated/calendar.index'
@@ -30,9 +30,9 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const authLogtinRoute = authLogtinRouteImport.update({
-  id: '/(auth)/logtin',
-  path: '/logtin',
+const authLoginRoute = authLoginRouteImport.update({
+  id: '/(auth)/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const authRegisterRoute = authRegisterRouteImport.update({
@@ -84,7 +84,7 @@ const AuthenticatedSettingsIndexRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/logtin': typeof authLogtinRoute
+  '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/share/$shareId': typeof ShareShareIdRoute
   '/projects/$projectId': typeof AuthenticatedProjectsProjectIdRoute
@@ -96,7 +96,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/logtin': typeof authLogtinRoute
+  '/login': typeof authLoginRoute
   '/register': typeof authRegisterRoute
   '/share/$shareId': typeof ShareShareIdRoute
   '/projects/$projectId': typeof AuthenticatedProjectsProjectIdRoute
@@ -110,7 +110,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/(auth)/logtin': typeof authLogtinRoute
+  '/(auth)/login': typeof authLoginRoute
   '/(auth)/register': typeof authRegisterRoute
   '/share/$shareId': typeof ShareShareIdRoute
   '/_authenticated/projects/$projectId': typeof AuthenticatedProjectsProjectIdRoute
@@ -124,7 +124,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/logtin'
+    | '/login'
     | '/register'
     | '/share/$shareId'
     | '/projects/$projectId'
@@ -136,7 +136,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/logtin'
+    | '/login'
     | '/register'
     | '/share/$shareId'
     | '/projects/$projectId'
@@ -149,7 +149,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
-    | '/(auth)/logtin'
+    | '/(auth)/login'
     | '/(auth)/register'
     | '/share/$shareId'
     | '/_authenticated/projects/$projectId'
@@ -163,7 +163,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  authLogtinRoute: typeof authLogtinRoute
+  authLoginRoute: typeof authLoginRoute
   authRegisterRoute: typeof authRegisterRoute
   ShareShareIdRoute: typeof ShareShareIdRoute
 }
@@ -184,11 +184,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)/logtin': {
-      id: '/(auth)/logtin'
-      path: '/logtin'
-      fullPath: '/logtin'
-      preLoaderRoute: typeof authLogtinRouteImport
+    '/(auth)/login': {
+      id: '/(auth)/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof authLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)/register': {
@@ -274,7 +274,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  authLogtinRoute: authLogtinRoute,
+  authLoginRoute: authLoginRoute,
   authRegisterRoute: authRegisterRoute,
   ShareShareIdRoute: ShareShareIdRoute,
 }

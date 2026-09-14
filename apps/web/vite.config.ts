@@ -1,8 +1,8 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-11 23:01:26
- * @LastEditTime: 2026-09-12 13:48:58
- * @FilePath: \life-os-shadcn\apps\web\vite.config.ts
+ * @LastEditTime: 2026-09-13 23:49:27
+ * @FilePath: \life-os\apps\web\vite.config.ts
  */
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
@@ -22,6 +22,14 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'), // 👈 改为 import.meta.dirname
+    },
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_URL || 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
   },
 })

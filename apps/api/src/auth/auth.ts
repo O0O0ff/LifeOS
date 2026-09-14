@@ -1,33 +1,25 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-09 20:23:58
- * @LastEditTime: 2026-09-12 15:47:45
+ * @LastEditTime: 2026-09-14 23:07:51
  * @FilePath: \life-os\apps\api\src\auth\auth.ts
  */
+// apps/api/src/auth/auth.ts
 import type { DatabaseInstance } from '@life-os/db/client'
-import * as schema from '@life-os/db/schema'
 import type { ConfigService } from '@nestjs/config'
-import { betterAuth } from 'better-auth'
-import { drizzleAdapter } from 'better-auth/adapters/drizzle'
+import { createLifeOsAuth } from '@life-os/auth' // 引入工厂
 
-// 导出一个工厂函数，接受 NestJS 注入进来的 db 和 configService
 export const createAuth = (
   db: DatabaseInstance,
   configService: ConfigService
-) =>
-  betterAuth({
-    database: drizzleAdapter(db, {
-      provider: 'pg',
-      schema,
-    }),
-    emailAndPassword: {
-      enabled: true,
-    },
-    // 从 ConfigService 拿环境变量，再也不用 process.env 了！
-    trustedOrigins: [
+) => {
+  // 依然保留你优秀的 DI 和环境变量读取
+  return createLifeOsAuth({
+    db,
+    frontendUrl:
       configService.get<string>('FRONTEND_URL') || 'http://localhost:5173',
-    ],
-    baseURL:
+    authUrl:
       configService.get<string>('BETTER_AUTH_URL') || 'http://localhost:3000',
-    secret: configService.get<string>('BETTER_AUTH_SECRET'),
+    secret: configService.get<string>('BETTER_AUTH_SECRET')!,
   })
+}

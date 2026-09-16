@@ -12,11 +12,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@life-os/auth": "workspace:*",
     "@tanstack/react-router": "^1.170.35",
     "@tanstack/react-router-devtools": "^1.167.1",
     "@workspace/ui": "workspace:*",
-    "@life-os/auth": "workspace:*",
     "better-auth": "catalog:",
+    "cn": "^0.2.6",
     "lucide-react": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"

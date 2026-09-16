@@ -1,16 +1,15 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-13 23:50:50
- * @LastEditTime: 2026-09-14 23:15:25
+ * @LastEditTime: 2026-09-16 20:04:36
  * @FilePath: \life-os\apps\web\src\lib\auth-client.ts
  */
-import { createAuthClient } from 'better-auth/react'
-import { inferAdditionalFields } from 'better-auth/client/plugins'
-import type { AppAuth } from '@life-os/auth'
 
-export const authClient = createAuthClient({
-  baseURL: import.meta.env.VITE_BETTER_AUTH_URL || 'http://localhost:3000',
-  plugins: [inferAdditionalFields<AppAuth>()],
+import { createLifeOsAuthClient } from '@life-os/auth/client'
+
+export const authClient = createLifeOsAuthClient({
+  baseURL: import.meta.env.VITE_API_URL, // 指向 NestJS 的 Auth 接口
 })
 
-export const { signIn, signUp, useSession, signOut } = authClient
+// 导出 hooks 供 React 组件使用
+export const { useSession, signIn, signOut } = authClient

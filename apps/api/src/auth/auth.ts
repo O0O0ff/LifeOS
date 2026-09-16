@@ -1,13 +1,13 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-09 20:23:58
- * @LastEditTime: 2026-09-14 23:07:51
+ * @LastEditTime: 2026-09-16 20:01:22
  * @FilePath: \life-os\apps\api\src\auth\auth.ts
  */
 // apps/api/src/auth/auth.ts
 import type { DatabaseInstance } from '@life-os/db/client'
 import type { ConfigService } from '@nestjs/config'
-import { createLifeOsAuth } from '@life-os/auth' // 引入工厂
+import { createLifeOsAuth } from '@life-os/auth/server' // 引入工厂
 
 export const createAuth = (
   db: DatabaseInstance,

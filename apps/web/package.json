@@ -4,23 +4,25 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "varlock run -- vite",
+    "build": "tsc -b && varlock run -- vite build",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "varlock run -- vite preview"
   },
   "dependencies": {
     "@life-os/auth": "workspace:*",
     "@tanstack/react-router": "^1.170.35",
     "@tanstack/react-router-devtools": "^1.167.1",
+    "@varlock/vite-integration": "^1.5.2",
     "@workspace/ui": "workspace:*",
     "better-auth": "catalog:",
     "cn": "^0.2.6",
     "lucide-react": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "varlock": "catalog:"
   },
   "devDependencies": {
     "@eslint/js": "^10",

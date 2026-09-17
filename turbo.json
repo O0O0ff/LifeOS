@@ -5,6 +5,7 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "env": ["DATABASE_URL"], // 👈 告诉 Turbo：如果 DATABASE_URL 变了，必须重新构建！
       "outputs": ["dist/**"]
     },
     "lint": {

@@ -1,7 +1,7 @@
 /*
  * @Author: zhangdodo heima@88.com
  * @Date: 2026-09-12 01:41:46
- * @LastEditTime: 2026-10-10 22:05:28
+ * @LastEditTime: 2026-10-10 22:10:55
  * @FilePath: \life-os\apps\api\src\main.ts
  */
 import 'varlock/auto-load'
@@ -63,7 +63,7 @@ async function bootstrap() {
   logger.log('--------------------------------------------------')
   logger.log(`🚀 Life-OS API 服务已成功启动!`)
   logger.log(`- 根路径前缀: http://localhost:${port}/api`)
-  logger.log(`- 接口文档 (Scalar): http://localhost:${port}/reference`)
+  logger.log(`- 接口文档 (Scalar): http://localhost:${port}/api/reference`)
   logger.log(`- 认证服务 (Better-Auth): http://localhost:${port}/api/auth`)
   logger.log('--------------------------------------------------')
 }
